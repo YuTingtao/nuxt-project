@@ -1,0 +1,71 @@
+@import '@/assets/css/reset.css';
+@import '@/assets/scss/base/element-ui.scss';
+
+// 公共样式
+#__nuxt{
+    min-height: 100%;
+    background: #fff;
+}
+
+.g-wrap{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+// header样式
+.g-header{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 60px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .1);
+    .g-wrap{
+        background: #fff;
+    }
+}
+
+.g-logo{
+    float: left;
+    margin: 10px 60px 0 0;
+    line-height: 40px;
+    font-size: 20px;
+    img{
+        height: 40px;
+        margin-right: 5px;
+    }
+}
+
+.g-menu{
+    float: left;
+    &.el-menu--horizontal{
+        border-bottom: none;
+    }
+    .el-menu-item{
+        font-size: 16px;
+        &.is-active{
+            color: $primary;
+        }
+        &:not(.is-disabled):focus, &:not(.is-disabled):hover{
+            color: $primary;
+        }
+    }
+    > .el-menu-item{
+        color: #666;
+    }
+}
+
+// footer样式
+.g-footer{
+    padding: 16px 0;
+    line-height: 28px;
+    text-align: center;
+    background: #eaebef;
+    color: #999;
+}
+
+// 内容
+.g-view{
+    box-sizing: border-box;
+    min-height: calc(100vh - 60px - 60px);
+    padding: 20px 0;
+}

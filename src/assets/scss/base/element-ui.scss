@@ -1,0 +1,87 @@
+/* 改变主题色变量 */
+$--color-primary: #409eff;
+
+/* 改变 icon 字体路径变量，必需 */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+@import "~element-ui/packages/theme-chalk/src/index";
+
+// 主色
+.primary{
+    color: $primary;
+}
+
+// el-card
+.el-card__header{
+    padding: 12px 20px;
+}
+
+// table
+.el-table--border{
+    th{
+        background: #f5f8fa;
+    }
+}
+
+// tooltip提示
+.el-tooltip__popper{
+    max-width: 80%;
+    padding: 5px 10px;
+    line-height: 1.8;
+}
+
+.el-tooltip__popper.is-dark{
+    background: rgba(20, 20, 20, 0.85);
+    &[x-placement^="top"] .popper__arrow{
+        border-top-color: rgba(30, 30, 30, 0.85);
+    }
+    &[x-placement^="bottom"] .popper__arrow{
+        border-bottom-color: rgba(30, 30, 30, 0.85);
+    }
+    &[x-placement^="left"] .popper__arrow{
+        border-left-color: rgba(30, 30, 30, 0.85);
+    }
+    &[x-placement^="right"] .popper__arrow{
+        border-right-color: rgba(30, 30, 30, 0.85);
+    }
+    & .popper__arrow:after{
+        border: none;
+    }
+}
+
+.el-tooltip__popper.is-light {
+    border: none;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    &[x-placement^="top"] .popper__arrow{
+        border-top-color: #fff;
+    }
+    &[x-placement^="bottom"] .popper__arrow{
+        border-bottom-color: #fff;
+    }
+    &[x-placement^="left"] .popper__arrow{
+        border-left-color: #fff;
+    }
+    &[x-placement^="right"] .popper__arrow{
+        border-right-color: #fff;
+    }
+    & .popper__arrow:after{
+        border: none;
+    }
+}
+
+// el-input
+.el-input__inner{
+    line-height: 38px;
+}
+.el-input--medium .el-input__inner{
+    line-height: 34px;
+}
+.el-input--small .el-input__inner{
+    line-height: 30px;
+}
+.el-input--mini .el-input__inner{
+    line-height: 26px;
+}
+.el-select__input{
+    margin-left: 6px;
+}
