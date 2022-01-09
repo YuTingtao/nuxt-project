@@ -13,10 +13,7 @@
     }
 </script>
 
-<style lang="scss">
-#__nuxt, #__layout {
-    height: 100%;
-}
+<style lang="scss" scoped>
 .page-error {
     height: 100%;
     overflow: auto;

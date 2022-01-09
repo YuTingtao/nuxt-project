@@ -8,7 +8,23 @@
 
 <script>
 export default {
-    
+    data() {
+        return {}
+    },
+    created() {
+        this.getList();
+    },
+    methods: {
+        async getList() {
+            let params = {
+                key: '',
+                httpsStatus: 1,
+                reqId: 'c3ff3010-7156-11ec-a206-4d7a63ba15ce'
+            }
+            let res = await this.$axios.get('/api/search/searchKey', { params });
+            console.log(res);
+        }
+    }
 };
 </script>
 

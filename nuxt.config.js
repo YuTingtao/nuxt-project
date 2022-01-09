@@ -41,8 +41,9 @@ export default {
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [
-        { src: '@/plugins/element-ui', ssr: true },
         { src: '@/plugins/vuex-cache', ssr: false },
+        '@/plugins/element-ui',
+        '@/plugins/axios'
     ],
 
     // Auto import components: https://go.nuxtjs.dev/config-components
@@ -64,17 +65,12 @@ export default {
         proxy: true
     },
     proxy: {
-        '/api': {
-            target: 'http://example.com',
-            pathRewrite: {
-                '^/api' : '/'
-            }
-        }
+        '/api': 'http://www.kuwo.cn/api/www'
     },
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {
         transpile: [ /^element-ui/, 'echarts' ],
-        vendor: ['element-ui', 'axios'],
+        vendor: ['element-ui', 'echarts'],
         analyze: true
     },
     vue: {

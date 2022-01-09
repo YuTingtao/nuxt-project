@@ -1,0 +1,80 @@
+<template>
+    <div class="login-page">
+        <el-form :model="form" ref="form" :rules="rules" size="large">
+            <el-form-item label="">
+                <h3>欢迎登录</h3>
+            </el-form-item>
+            <el-form-item label="" prop="user">
+                <el-input v-model="form.user" placeholder="请输入账号"
+                    prefix-icon="el-icon-user">
+                </el-input>
+            </el-form-item>
+            <el-form-item label="" prop="password">
+                <el-input v-model="form.password" placeholder="请输入密码" 
+                    show-password prefix-icon="el-icon-lock" @keyup.native.enter="onSubmit">
+                </el-input>
+            </el-form-item>
+            <el-form-item>
+                <el-button type="primary" @click="onSubmit">登&nbsp;录</el-button>
+            </el-form-item>
+        </el-form>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            form: {
+                user: 'admin',
+                password: '123456'
+            },
+            rules: {
+                user: [
+                    { required: true, message: '请输入账号', trigger: 'blur' }
+                ],
+                password: [
+                    { required: true, message: '请输入密码', trigger: 'blur' }
+                ]
+            }
+        }
+    },
+    methods: {
+        onSubmit() {
+            this.$refs.form.validate((valid) => {
+                if (!valid) {
+                    return false;
+                }
+                let data = {
+                    token: 'PC-1234567890',
+                    userInfo: {
+                        id: 123456,
+                        name: 'admin'
+                    }
+                }
+                this.$store.commit('LOGIN', data);
+                this.$router.replace('/');
+            })
+        }
+    }
+}
+</script>
+
+<style lang="scss" scoped>
+.el-form{
+    width: 380px;
+    margin: 15vh auto 15vh auto;
+    h3{
+        margin-bottom: 10px;
+        font-size: 30px;
+        text-align: center;
+        font-weight: normal;
+    }
+    .el-button{
+        width: 100%;
+    }
+    /deep/ .el-input__icon{
+        font-size: 16px;
+    }
+}
+</style>
