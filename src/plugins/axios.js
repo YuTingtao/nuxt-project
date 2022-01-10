@@ -36,7 +36,7 @@ export default function({ $axios, store, redirect }) {
                         redirect('/login');
                         break;
                     case 403: // 403 token过期
-                        toast('登录过期，请重新登录')
+                        toast('登录过期，请重新登录');
                         store.commit('LOGOUT');
                         redirect('/login');
                         break;

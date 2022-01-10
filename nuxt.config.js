@@ -33,11 +33,16 @@ export default {
             href: '/favicon.ico'
         }]
     },
-
     // Global CSS: https://go.nuxtjs.dev/config-css
     css: [
         '@/assets/scss/base/main.scss',
     ],
+
+    // 加载进度条
+    loading: {
+        color: '#409EFF',
+        failedColor: '#F56C6C'
+    },
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [
@@ -65,8 +70,9 @@ export default {
         proxy: true
     },
     proxy: {
-        '/api': 'http://www.kuwo.cn/api/www'
+        '/kwapi': 'http://www.kuwo.cn/api/www'
     },
+
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {
         transpile: [ /^element-ui/, 'echarts' ],

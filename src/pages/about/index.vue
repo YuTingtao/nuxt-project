@@ -21,8 +21,10 @@ export default {
                 httpsStatus: 1,
                 reqId: 'c3ff3010-7156-11ec-a206-4d7a63ba15ce'
             }
-            let res = await this.$axios.get('/api/search/searchKey', { params });
-            console.log(res);
+            let res = await this.$axios.get('/kwapi/search/searchKey', { params });
+            if (process.client) {
+                console.log(res);
+            }
         }
     }
 };
