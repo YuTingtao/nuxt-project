@@ -1,3 +1,4 @@
+// vuex
 export const state = ()=> ({
     token: '',
     userInfo: {}
