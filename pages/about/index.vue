@@ -1,7 +1,8 @@
 <template>
     <div class="about-page">
         <div class="g-wrap">
-            关于我们
+            <svg-icon name="case"></svg-icon>
+            <span style="vertical-align: middle;">关于我们</span>
         </div>
     </div>
 </template>

@@ -50,7 +50,8 @@ export default {
     plugins: [
         { src: '@/plugins/vuex-cache', ssr: false },
         '@/plugins/element-ui',
-        '@/plugins/axios'
+        '@/plugins/axios',
+        '@/plugins/svg-icon',
     ],
 
     // Auto import components: https://go.nuxtjs.dev/config-components
@@ -63,7 +64,10 @@ export default {
     modules: [
         '@nuxtjs/style-resources',
         '@nuxtjs/axios',
-        '@nuxtjs/proxy'
+        '@nuxtjs/proxy',
+        ['nuxt-svg-sprite-loader', {
+            symbolId: 'icon-[name]'
+        }]
     ],
     styleResources: {
         scss: ['./assets/scss/base/variable.scss'], // 引入scss基础变量
