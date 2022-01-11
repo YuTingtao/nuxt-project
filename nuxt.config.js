@@ -1,5 +1,4 @@
 export default {
-    srcDir: 'src/',
     server: {
         host: 'localhost',
         port: 8080
