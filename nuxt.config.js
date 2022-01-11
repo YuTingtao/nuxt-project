@@ -3,7 +3,9 @@ export default {
         host: 'localhost',
         port: 8080
     },
-    // Global page headers: https://go.nuxtjs.dev/config-head
+    target: 'server', // 默认:server, 使用nuxt generate打包时设置为:static
+
+    // 页面header设置: https://go.nuxtjs.dev/config-head
     head: {
         title: 'nuxt-project',
         htmlAttrs: {
@@ -32,7 +34,8 @@ export default {
             href: '/favicon.ico'
         }]
     },
-    // Global CSS: https://go.nuxtjs.dev/config-css
+    
+    // 全局样式: https://go.nuxtjs.dev/config-css
     css: [
         '@/assets/scss/base/main.scss',
     ],
