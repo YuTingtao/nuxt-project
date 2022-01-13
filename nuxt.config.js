@@ -1,3 +1,5 @@
+const { resolve } = require('path')
+
 export default {
     server: {
         host: 'localhost',
@@ -64,10 +66,7 @@ export default {
     modules: [
         '@nuxtjs/style-resources',
         '@nuxtjs/axios',
-        '@nuxtjs/proxy',
-        ['nuxt-svg-sprite-loader', {
-            symbolId: 'icon-[name]'
-        }]
+        '@nuxtjs/proxy'
     ],
     styleResources: {
         scss: ['./assets/scss/base/variable.scss'], // 引入scss基础变量
@@ -82,8 +81,18 @@ export default {
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {
         transpile: [ /^element-ui/, 'echarts' ],
-        vendor: ['element-ui', 'echarts'],
-        analyze: true
+        vendor: ['element-ui'],
+        analyze: true,
+        extend(config, context){
+            // svg雪碧图配置
+            const svgRule = config.module.rules.find(rule => rule.test.test('.svg'))
+            svgRule.exclude = [resolve(__dirname, 'assets/svg')]
+            config.module.rules.push({
+                test: /\.svg$/,
+                include: [resolve(__dirname, 'assets/svg')],
+                use: [{loader: 'svg-sprite-loader', options: {symbolId: 'icon-[name]'}}]
+            })
+        }
     },
     vue: {
         config: {
